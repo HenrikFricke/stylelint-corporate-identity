@@ -9,6 +9,8 @@ dependencies:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
   override:
     - yarn
+  post:
+    - yarn global add dot-json
   cache_directories:
     - ~/.cache/yarn
 
