@@ -3,15 +3,25 @@
   "scripts": {
     "test": "yarn test:unit && yarn test:rule",
     "test:unit": "jest --coverage",
-    "test:rule": "node src/__tests__/index.js"
+    "test:rule": "node src/__tests__/index.js",
+    "lint": "standard | snazzy"
   },
   "main": "src/index.js",
-  "jest": {
-    "testRegex": "/__tests__/.*\\.test\\.js$",
-    "testEnvironment": "node"
-  },
+  "repository": "git@github.com:HenrikFricke/stylelint-corporate-identity.git",
   "author": "Henrik Fricke <henrikfricke@web.de>",
   "license": "MIT",
+  "description": "CSS Linting for corporate identity",
+  "keywords": [
+    "stylelint",
+    "stylelint-plugin",
+    "corporate identity",
+    "corporate",
+    "identity",
+    "ci",
+    "css",
+    "lint",
+    "linter"
+  ],
   "dependencies": {
     "lodash.isstring": "^4.0.1",
     "stylelint": "^7.10.1"
@@ -19,9 +29,24 @@
   "devDependencies": {
     "jasmine-data-provider": "^2.2.0",
     "jest": "^19.0.2",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2",
     "stylelint-test-rule-tape": "^0.2.0"
   },
   "engines": {
     "node": ">=6.10.0"
+  },
+  "jest": {
+    "testRegex": "/__tests__/.*\\.test\\.js$",
+    "testEnvironment": "node"
+  },
+  "standard": {
+    "envs": [
+      "node",
+      "jest"
+    ],
+    "ignore": [
+      "node_modules/"
+    ]
   }
 }

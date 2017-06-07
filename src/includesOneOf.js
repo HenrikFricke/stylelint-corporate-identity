@@ -1,5 +1,5 @@
-function includesOneOf(string, matchers) {
-    return string.match(`(^|\\b)${matchers.join("|")}`) ? true : false
+function includesOneOf (string, matchers) {
+  return !!string.match(`(^|\\b)${matchers.join('|')}`)
 }
 
-module.exports = includesOneOf;
+module.exports = includesOneOf
