@@ -1,6 +1,6 @@
 const stylelint = require("stylelint")
 const declarationValueIndex = require('stylelint/lib/utils/declarationValueIndex')
-const isString = require('lodash/Lang').isString
+const isString = require('lodash.isstring')
 
 const isCssColorProperty = require('./isCssColorProperty')
 const includesOneOf = require('./includesOneOf')

@@ -13,7 +13,7 @@
   "author": "Henrik Fricke <henrikfricke@web.de>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash.isstring": "^4.0.1",
     "stylelint": "^7.10.1"
   },
   "devDependencies": {
