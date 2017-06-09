@@ -4,13 +4,16 @@ const stylelintCorporateIdentityColors = require('../index')
 
 testRule(stylelintCorporateIdentityColors.rule, {
   ruleName: stylelintCorporateIdentityColors.ruleName,
-  config: [ [ 'red', 'blue' ] ],
+  config: [ [ 'red', 'blue', 'rgb(100,100,100)' ] ],
 
   accept: [
     { code: '.class { color: blue; }' },
     { code: '.class { box-shadow: 0 0 0 5px blue, 0 0 0 10px red; color: blue; }' },
     { code: '.class { with: 10px; }' },
-    { code: '.class { with: 10px; color: red; }' }
+    { code: '.class { with: 10px; color: red; }' },
+    { code: '.class { background-color: transparent; color: red; }' },
+    { code: '.class { background-color: rgba(0,0,0,0); color: red; }' },
+    { code: '.class { background-color: rgb(100,100,100); color: red; }' }
   ],
 
   reject: [

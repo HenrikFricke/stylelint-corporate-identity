@@ -2,8 +2,7 @@ const stylelint = require('stylelint')
 const declarationValueIndex = require('stylelint/lib/utils/declarationValueIndex')
 const isString = require('lodash.isstring')
 
-const isCssColorProperty = require('./isCssColorProperty')
-const includesOneOf = require('./includesOneOf')
+const parseCssColors = require('./parseCssColors')
 
 const ruleName = 'corporate-identity/colors'
 const messages = stylelint.utils.ruleMessages(ruleName, {
@@ -21,23 +20,20 @@ function report (declaration, result) {
 }
 
 function rule (primaryOption) {
-  const colors = primaryOption || []
+  const ciColors = primaryOption || []
+  ciColors.push('rgba(0,0,0,0)')
 
   return (root, result) => {
     var validOptions = stylelint.utils.validateOptions(result, ruleName, {
-      actual: colors,
+      actual: ciColors,
       possible: [isString]
     })
 
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (!isCssColorProperty(decl.prop)) {
-        return
-      }
-
-      decl.value.split(',')
-        .filter(value => !includesOneOf(value, colors))
+      parseCssColors(decl.value)
+        .filter(color => !ciColors.includes(color))
         .map(() => report(decl, result))
     })
   }
