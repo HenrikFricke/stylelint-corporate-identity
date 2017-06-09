@@ -23,7 +23,6 @@
     "linter"
   ],
   "dependencies": {
-    "escape-string-regexp": "^1.0.5",
     "lodash.isstring": "^4.0.1",
     "stylelint": "^7.10.1"
   },
